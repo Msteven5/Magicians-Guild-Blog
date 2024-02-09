@@ -1,6 +1,39 @@
 const router = require('express').Router();
 const { User } = require('../../models');
 
+// POST create a new user
+router.post('/signup', async (req, res) => {
+  try {
+    const userData = await User.create({
+      name: req.body.name,
+      email: req.body.email,
+      password: req.body.password});
+
+    res.status(200).json(userData);
+  } catch (err) {
+    res.status(400).json(err);
+  }
+});
+
+// PUT update a user
+router.put('/:id', async (req, res) => {
+  try {
+    const userData = await User.update(req.body, {
+      where: {
+        id: req.params.id,
+      },
+      individualHooks: true
+    });
+    if (!userData[0]) {
+      res.status(404).json({ message: 'No user with this id!' });
+      return;
+    }
+    res.status(200).json(userData);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 router.post('/login', async (req, res) => {
   try {
     // Find the user who matches the posted e-mail address

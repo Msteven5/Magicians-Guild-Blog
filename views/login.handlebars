@@ -1,40 +1,45 @@
-<div class="row justify-space-between-md">
-  <div class="login-card">
-    <h2 class="page-title text-center">Login</h2>
-    <form class="form login-form">
-      <div class="form-group d-flex justify-content-end my-2 ms-4">
-        <label class="px-2" for="email-login">Email:</label>
-        <input class="form-input" type="text" id="email-login" />
+<h3 class="mt-2 text-center text-decoration-underline">Welcome to the Magician's Guild Blog!</h3>
+<div class="p-2 card" style="width:350px">
+  <main class="container container-fluid mt-3">
+    <div class="row justify-space-between-md">
+      <span class="row m-2 justify-content-center align-items-center">Can You Keep A Secret?</span>
+      <div class="login-card">
+        <h2 class="page-title text-center">Login</h2>
+        <form class="form login-form">
+          <div class="form-group d-flex justify-content-end my-2 ms-4">
+            <label class="px-2" for="email-login">Email:</label>
+            <input class="form-input" type="text" id="email-login" />
+          </div>
+          <div class="form-group d-flex justify-content-end my-2">
+            <label class="px-2" for="password-login">Password:</label>
+            <input class="form-input" type="password" id="password-login" />
+          </div>
+          <div class="form-group d-flex justify-content-end">
+            <button class="btn btn-primary mb-2" type="submit">login</button>
+          </div>
+        </form>
       </div>
-      <div class="form-group d-flex justify-content-end my-2">
-        <label class="px-2" for="password-login">Password:</label>
-        <input class="form-input" type="password" id="password-login" />
+      <div class="login-card" width="250px">
+        <h2 class="page-title text-center">Signup</h2>
+        <form class="form signup-form">
+          <div class="form-group d-flex justify-content-end my-2">
+            <label class="px-2" for="username-signup">Username: </label>
+            <input class="form-input" type="text" id="username-signup" />
+          </div>
+          <div class="form-group d-flex justify-content-end my-2 ms-4">
+            <label class="px-2" for="email-signup">Email: </label>
+            <input class="form-input" type="text" id="email-signup" />
+          </div>
+          <div class="form-group d-flex justify-content-end my-2">
+            <label class="px-2" for="password-signup">Password: </label>
+            <input class="form-input" type="password" id="password-signup" />
+          </div>
+          <div class="form-group d-flex justify-content-end">
+            <button class="btn btn-primary" type="submit">Signup</button>
+          </div>
+        </form>
       </div>
-      <div class="form-group d-flex justify-content-end">
-        <button class="btn btn-primary mb-4" type="submit">login</button>
-      </div>
-    </form>
-  </div>
-  <div class="login-card" width="250px">
-    <h2 class="page-title text-center">Signup</h2>
-    <form class="form signup-form">
-      <div class="form-group d-flex justify-content-end my-2">
-        <label class="px-2" for="username-signup">Username: </label>
-        <input class="form-input" type="text" id="username-signup" />
-      </div>
-      <div class="form-group d-flex justify-content-end my-2 ms-4">
-        <label class="px-2" for="email-signup">Email: </label>
-        <input class="form-input" type="text" id="email-signup" />
-      </div>
-      <div class="form-group d-flex justify-content-end my-2">
-        <label class="px-2" for="password-signup">Password: </label>
-        <input class="form-input" type="password" id="password-signup" />
-      </div>
-      <div class="form-group d-flex justify-content-end">
-        <button class="btn btn-primary" type="submit">signup</button>
-      </div>
-    </form>
-  </div>
-</div>
+    </div>
 
-<script src="./js/login.js"></script>
+    <script src="./js/login.js"></script>
+    <script src="./js/signup.js"></script>
