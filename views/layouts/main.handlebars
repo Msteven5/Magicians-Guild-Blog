@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Magicians Guild Blog</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Rubik+Glitch&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+
+<body>
+  <main>
+    <header>
+      <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">
+            <a class="fs-4 text-light navbar-brand" href="#">Magician's Guild Blog</a>
+
+            <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse"
+              data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
+              aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="justify-content-end collapse navbar-collapse" id="navbarNavDropdown">
+              <ul class="navbar-nav">
+
+                <li class="nav-item">
+                  <a class="fs-4 text-light nav-link active" aria-current="page" href="#">Profile</a>
+                </li>
+                <li class="nav-item">
+                  <a class="fs-4 text-light nav-link" href="#">Create Post</a>
+                </li>
+                {{#if logged_in}}
+                <li class="nav-item">
+                  <a class="fs-4 text-light nav-link" id="logout">Logout</button>
+                </li>
+                {{/if}}
+
+              </ul>
+            </div>
+        </div>
+      </nav>
+    </header>
+
+    <h3 class="mt-2 text-center text-decoration-underline">Welcome to the Magician's Guild Blog!</h3>
+    <article class="row justify-content-center">
+      <div class="row p-3 m-1" id="project1" style="width:auto">
+        <div class="p-2 card" style="width:350px">
+          <span class="row m-2 justify-content-center align-items-center">Can You Keep A Secret?</span>
+          <main class="container container-fluid mt-3">
+            {{{ body }}}
+          </main>
+          <div class="card-body">
+            <footer>
+
+            </footer>
+
+            {{#if logged_in}}
+            <script src="/js/logout.js"></script>
+            {{/if}}
+          </div>
+        </div>
+      </div>
+    </article>
+
+    </header>
+
+</body>
+
+</html>
