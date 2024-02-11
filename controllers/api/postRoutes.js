@@ -7,6 +7,8 @@ router.post('/post', async (req, res) => {
         const postData = await Post.create({
             title: req.body.title,
             content: req.body.content,
+            authorName: req.body.name,
+            comment: req.body.comment
         });
 
         res.status(200).json(postData);

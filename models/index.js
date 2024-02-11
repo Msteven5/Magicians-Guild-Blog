@@ -2,30 +2,27 @@ const User = require('./User');
 const Comment = require('./Comment');
 const Post = require('./post');
 
-// Products belongsTo Category
 Comment.belongsTo(Post, {
-  foreignKey: 'id'
+  foreignKey: 'id',
+  onDelete: 'SET NULL'
 })
 
-// Categories have many Products
-Category.hasMany(Product, {
-  foreignKey: 'category_id',
+Post.hasMany(Comment, {
+  foreignKey: 'id',
   onDelete: 'CASCADE'
 })
-// Products belongToMany Tags (through ProductTag)
-Product.belongsToMany(Tag, {
-  foreignKey: 'product_id',
-  through: ProductTag
+
+Post.belongsTo(User, {
+  foreignKey: 'id',
+  onDelete: 'CASCADE'
 })
-// Tags belongToMany Products (through ProductTag)
-Tag.belongsToMany(Product, {
-  foreignKey: 'tag_id',
-  through: ProductTag
+
+User.hasMany(Post {
+  foreignKey: 'id',
+  onDelete: 'CASCADE'
 })
-module.exports = {
-  Product,
-  Category,
-  Tag,
-  ProductTag,
-};
-module.exports = { User };
+
+module.exports = { 
+  User, 
+  Comment, 
+  Post };
