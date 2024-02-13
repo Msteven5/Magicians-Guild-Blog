@@ -2,12 +2,12 @@ const router = require('express').Router();
 const { Comment, User, Post } = require('../../models');
 
 // POST create a new post
-router.post('/post', async (req, res) => {
+router.post('/', async (req, res) => {
     try {
         const postData = await Post.create({
             title: req.body.title,
             content: req.body.content,
-            authorName: req.body.name,
+            author_name: req.session.user_id,
             comment: req.body.comment
         });
 
@@ -17,7 +17,7 @@ router.post('/post', async (req, res) => {
     }
 });
 
-router.get('/post', async (req, res) => {
+router.get('/', async (req, res) => {
     try {
         const postData = await Post.findAll({
             include: [{ model: Comment }, { model: User }],
@@ -28,7 +28,7 @@ router.get('/post', async (req, res) => {
     }
 });
 
-router.delete('/post/:id', async (req, res) => {
+router.delete('/:id', async (req, res) => {
     try {
         const postData = await Post.destroy({
             where: {

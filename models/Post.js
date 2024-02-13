@@ -19,12 +19,12 @@ Post.init(
             type: DataTypes.STRING,
             allowNull: false,
         },
-        authorName: {
+        author_name: {
             type: DataTypes.INTEGER,
             allowNull: false,
-            references: { model: 'user', key: 'id' }
+            references: { model: 'user', key: 'id'}
         },
-        comment: {
+        comment_id: {
             type: DataTypes.INTEGER,
             allowNull: true,
             references: { model: 'comment', key: 'id' }
