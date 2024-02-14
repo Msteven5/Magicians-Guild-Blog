@@ -24,11 +24,11 @@ Post.init(
             allowNull: false,
             references: { model: 'user', key: 'id'}
         },
-        comment_id: {
-            type: DataTypes.INTEGER,
-            allowNull: true,
-            references: { model: 'comment', key: 'id' }
-        }
+        // comment_id: {
+        //     type: DataTypes.INTEGER,
+        //     allowNull: true,
+        //     references: { model: 'comment', key: 'id' }
+        // }
     },
     {
         sequelize,
