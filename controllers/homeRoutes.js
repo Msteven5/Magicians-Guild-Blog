@@ -13,17 +13,16 @@ router.get('/', withAuth, async (req, res) => {
           as: 'user'
         },
         {
-         model: Comment
+         model: Comment,
+         include: [{
+          model: User,
+          attributes: ['name'],
+          as: 'user'}
+         ]
        }
       ],
     });
     
-    const commentData = await Comment.findAll({
-      // where: {post_id: posts.id}
-    })
-    const comments = commentData.map((comment) =>
-    comment.get({ plain: true })
-    );
     const posts = postData.map((post) =>
     post.get({ plain: true })
     );
@@ -33,8 +32,6 @@ router.get('/', withAuth, async (req, res) => {
     console.log(posts)
     res.render('homepage', {
       posts,
-      // comments,
-      // Pass the logged in flag to the template
       logged_in: req.session.logged_in,
     });
   } catch (err) {
