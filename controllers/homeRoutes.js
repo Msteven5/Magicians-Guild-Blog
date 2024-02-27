@@ -50,12 +50,8 @@ router.get('/login', (req, res) => {
   res.render('login');
 });
 
-router.get('/profile', async (req, res) => {
+router.get('/profile', withAuth, async (req, res) => {
   // If a session exists, redirect the request to the homepage
-  if (!req.session.logged_in) {
-    res.redirect('/');
-    return;
-  }
 
   try {
     const userData = await User.findByPk(req.session.user_id,
@@ -65,10 +61,10 @@ router.get('/profile', async (req, res) => {
 
     const user = userData.get({ plain: true })
 
-
     res.render('profile',
       {
-        user
+        user,
+        logged_in: req.session.logged_in
       });
   } catch (err) {
     res.status(500).json(err);
@@ -79,6 +75,12 @@ router.get('/comments/:postId', withAuth, async (req, res) => {
   try {
     const commentData = await Comment.findAll({
       where: { post_id: req.params.postId },
+      include:
+        {
+          model: User,
+          attributes: ['name'],
+          as: 'user'
+        }
     });
 
     const comments = commentData.map((comment) =>
@@ -94,4 +96,15 @@ router.get('/comments/:postId', withAuth, async (req, res) => {
     res.status(500).json(err);
   }
 })
+
+router.get('/create-post', withAuth, async (req, res) => {
+  try {
+    res.render('create-post', {
+      logged_in: req.session.logged_in,
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+})
+
 module.exports = router;
