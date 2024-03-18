@@ -27,7 +27,7 @@ const postFormHandler = async (event) => {
             alert('An error occurred while fetching user information');
         }
     } else {
-        alert('You must be logged in and provide both title and content to create a post');
+        alert('You must provide both title and content to create a post');
     }
 };
 document

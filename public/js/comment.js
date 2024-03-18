@@ -1,8 +1,7 @@
 const commentFormHandler = async (event) => {
-    // Stop the browser from submitting the form so we can do so with JavaScript
     event.preventDefault();
 
-    // Gather the data from the form elements on the page
+
     const content = event.target.querySelector('.comment-input').value.trim();
     const post_id = event.target.querySelector('.post_id').value
 

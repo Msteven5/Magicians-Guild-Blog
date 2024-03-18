@@ -2,6 +2,7 @@
 
 <div class="d-flex justify-content-center align-items-center">
     <div class="card-deck2">
+        {{#if comments}}
         {{#each comments}}
         <div class="d-flex justify-content-center align-items-center">
             <div class="card mb-3 post d-flex align-items-center" style="width: 750px; height: 75px;">
@@ -12,5 +13,8 @@
             </div>
         </div>
         {{/each}}
+        {{else}}
+        <h3 class="mt-5 fs-4">No comments yet, be the first one!</h3>
+        {{/if}}
     </div>
 </div>

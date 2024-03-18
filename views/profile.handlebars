@@ -1,19 +1,51 @@
-<div class="row Post-card" style="width: 500px">
+<div class="row Post-card">
   <h2 class="page-title text-center mb-5">Welcome To Your Profile!</h2>
   </article>
+  <h3 class="text-center my-4">Your Posts:</h3>
   <div class="d-flex justify-content-center align-items-center">
-    <div class="card-deck">
+    <div class="row card-deck vw-100 d-flex justify-content-center align-items-center">
+      {{#if user.posts}}
       {{#each user.posts as |post| }}
-      <div class="card mb-4 post d-flex align-items-center" style="width: 700px; height: 125px;">
+      <div class="card mb-4 post w-75 d-flex align-items-center">
         <div class="card-body text-center text-white">
           <h4 class="card-title">{{title}}</h4>
           <p class="card-text fs-5">{{content}}</p>
+        </div>
+        <div class="text-light w-25 d-flex justify-content-center">
+
+          <span class="text-center">Regretting your choices?
+            <button class="mb-2 rounded-3 deletePost" value={{id}}>Make This Post...Disappear</button>
+          </span>
+        </div>
       </div>
-      <div class="text-light w-25 d-flex justify-content-between">
-          <a href="#" class="mb-3">Edit</a>
-          <a href="#" span class="mb-3">Delete</a>
+      {{/each}}
+      {{else}}
+      <h5 class="text-center">You have no posts, go to "Create Post" now to share your secrets!</h5>
+      {{/if}}
+    </div>
+  </div>
+
+<h3 class="text-center my-5">Your Comments:</h3>
+  <div class="d-flex justify-content-center align-items-center"></div>
+  <div class="row card-deck vw-100 d-flex justify-content-center align-items-center">
+    {{#if user.comments}}
+    {{#each user.comments as |comment| }}
+    <div class="card mb-4 post w-75 d-flex align-items-center">
+      <div class="card-body text-center text-white">
+        <h4 class="card-title">{{title}}</h4>
+        <p class="card-text fs-5">{{content}}</p>
+      </div>
+      <div class="text-light w-25 d-flex justify-content-center">
+
+        <span class="text-center">Regretting your choices?
+          <button class="mb-2 rounded-3 deleteComment" value={{id}}>Make This Comment...Disappear</button>
+        </span>
       </div>
     </div>
     {{/each}}
+    {{else}}
+    <h5 class="text-center">You have no comments, click the name in the top left and go interact with your fellow Magicians!</h5>
+    {{/if}}
   </div>
 </div>
+<script src="./js/deleteOptions.js"></script>
